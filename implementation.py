@@ -200,7 +200,9 @@ def loadCSV(file):
 			return s	
 
 	reader = csv.reader(open(file, 'rt'))
+	next(reader)
 	return [[convertTypes(item) for item in row] for row in reader]
+
 		
 
 
@@ -220,7 +222,7 @@ if __name__ == '__main__':
 
 	if example == 1:
 		# the smaller examples
-		trainingData = loadCSV('zxc.csv') # sorry for not translating the TBC and pneumonia symptoms
+		trainingData = loadCSV('zxc2.csv') # sorry for not translating the TBC and pneumonia symptoms
 		decisionTree = growDecisionTreeFrom(trainingData)
 		#decisionTree = growDecisionTreeFrom(trainingData, evaluationFunction=gini) # with gini
 		plot(decisionTree) 
@@ -232,7 +234,7 @@ if __name__ == '__main__':
 
 	else:
 		# the bigger example
-		trainingData = loadCSV('zxc.csv') # demo data from matlab
+		trainingData = loadCSV('zxc2.csv') # demo data from matlab
 		decisionTree = growDecisionTreeFrom(trainingData)		
 		plot(decisionTree)
 
